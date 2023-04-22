@@ -12,6 +12,8 @@ def script():
 def welcome():
     print("Welcome to SoHo Restuarants")
     print("What type of food would you like to eat?")
+    for type in types:
+        print(type)
     return 
 
 def building_the_tree():
@@ -53,7 +55,7 @@ def showing_restaurants(cuisuine):
 def goodbye():
     again = input("Do You want to find other restuarants. 'y' for yes 'n' for no\n")
     if again == "y":
-        searching_for_cuisuine()
+        showing_restaurants(searching_for_cuisuine())
     else:
         print("Thanks you for using our app")
 
