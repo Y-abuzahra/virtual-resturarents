@@ -3,9 +3,7 @@ from restaurantData import types, restaurant_data
 from naive_pattern_search import naive_pattern_search
 
 
-def script():
-    welcome()
-    showing_restaurants(searching_for_cuisuine())
+
     
 
 
@@ -31,15 +29,15 @@ def building_the_tree():
     
 def searching_for_cuisuine():
     root = building_the_tree()
-    resualt = []
+    resualts = []
     for child in root.children:
         if naive_pattern_search(child.value, root.value):
-            resualt.append(child)
-    if len(resualt) == 1:
-        return resualt[0]
+            resualts.append(child)
+    if len(resualts) == 1:
+        return resualts[0]  
     else:
-        print(f"With Those beginning letters, your choices are {resualt}")
-        print(searching_for_cuisuine())
+        print(f"With Those beginning letters, your choices are {[resault.value for resault in resualts]}")
+        return searching_for_cuisuine()
 
 def showing_restaurants(cuisuine):
     restaurants = input(f"The only option with those beginning letters is {cuisuine.value}. Do you want to look at {cuisuine.value} restaurants?. Enter 'y' for yes and 'n' for no\n")
@@ -59,4 +57,5 @@ def goodbye():
     else:
         print("Thanks you for using our app")
 
-script()
+welcome()
+showing_restaurants(searching_for_cuisuine())
